@@ -32,7 +32,7 @@ public class PatientServiceTest {
 
         // then
         assertThat(patientTO).isNotNull();
-        assertThat(patientTO.getDateOfJoiningTheClinic().toString()).isEqualTo("2007-05-12");
+        assertThat(patientTO.getDateOfJoiningTheClinic().toString()).isEqualTo("2010-05-06");
 
     }
 

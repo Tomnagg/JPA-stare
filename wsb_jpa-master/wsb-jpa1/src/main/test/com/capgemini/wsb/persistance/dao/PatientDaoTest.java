@@ -1,8 +1,6 @@
 package com.capgemini.wsb.persistance.dao;
 
-import com.capgemini.wsb.persistence.dao.AddressDao;
 import com.capgemini.wsb.persistence.dao.PatientDao;
-import com.capgemini.wsb.persistence.entity.AddressEntity;
 import com.capgemini.wsb.persistence.entity.PatientEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +25,7 @@ public class PatientDaoTest
     @Test
     public void findPatientByLastName() {
         // given
-        final String lastName = "Maj";
+        final String lastName = "Groch";
         // when
         final List<PatientEntity> patientEntity = patientDao.findByLastName(lastName);
         // then
@@ -50,11 +48,25 @@ public class PatientDaoTest
     public void findPatientByDateOfJoiningTheClinic()
     {
         //given
-        final LocalDate date = LocalDate.of(2012, 05, 27);
+        final LocalDate date = LocalDate.of(2012, 02, 24);
         //when
         final List<PatientEntity> patientEntity = patientDao.findByDateOfJoiningTheClinic(date);
         //then
         assertThat(patientEntity).isNotNull();
         assertThat(patientEntity.size()).isEqualTo(3);
+    }
+    @Transactional
+    @Test
+    public void findPatientByTelephoneNumber() {
+        // given
+        final String telephonenumber = "501008008";
+
+        // when
+        final List<PatientEntity> patients = patientDao.findPatientByTelephoneNumber(telephonenumber);
+
+        // then
+        assertThat(patients).isNotNull();
+        assertThat(patients).isNotEmpty();
+        assertThat(patients.size()).isEqualTo(1);
     }
 }

@@ -12,4 +12,5 @@ public interface PatientDao extends Dao<PatientEntity, Long>
     List<PatientEntity> findByMoreThanXVisits(Long x);
 
     List<PatientEntity> findByDateOfJoiningTheClinic(LocalDate date);
+    List<PatientEntity> findPatientByTelephoneNumber(String telephonenumber);
 }

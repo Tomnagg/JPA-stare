@@ -35,4 +35,12 @@ public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements 
                 .setParameter("date", date)
                 .getResultList();
     }
+    @Override
+    public List<PatientEntity> findPatientByTelephoneNumber(String telephonenumber)
+    {
+        return entityManager.createQuery("select pat from PatientEntity pat " +
+            "where pat.telephoneNumber = :telephone", PatientEntity.class)
+            .setParameter("telephone", telephonenumber)
+            .getResultList();
+    }
 }

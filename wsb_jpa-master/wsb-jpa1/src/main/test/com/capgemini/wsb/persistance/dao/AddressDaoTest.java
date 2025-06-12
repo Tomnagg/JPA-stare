@@ -26,7 +26,7 @@ public class AddressDaoTest
         AddressEntity addressEntity = addressDao.findOne(1L);
         // then
         assertThat(addressEntity).isNotNull();
-        assertThat(addressEntity.getPostalCode()).isEqualTo("62-030");
+        assertThat(addressEntity.getPostalCode()).isEqualTo("65-001");
     }
 
     @Test
@@ -36,7 +36,7 @@ public class AddressDaoTest
         addressEntity.setAddressLine1("line1");
         addressEntity.setAddressLine2("line2");
         addressEntity.setCity("City1");
-        addressEntity.setPostalCode("66-666");
+        addressEntity.setPostalCode("77-777");
         long entitiesNumBefore = addressDao.count();
 
         // when
@@ -56,7 +56,7 @@ public class AddressDaoTest
         addressEntity.setAddressLine1("line1");
         addressEntity.setAddressLine2("line2");
         addressEntity.setCity("City1");
-        addressEntity.setPostalCode("66-666");
+        addressEntity.setPostalCode("77-777");
 
         // when
         final AddressEntity saved = addressDao.save(addressEntity);
@@ -70,6 +70,4 @@ public class AddressDaoTest
         final AddressEntity removed = addressDao.findOne(saved.getId());
         assertThat(removed).isNull();
     }
-
-
 }
